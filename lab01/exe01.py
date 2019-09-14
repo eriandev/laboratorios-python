@@ -1,5 +1,6 @@
+''' Operaciones para hallar el números mayor, el números menor y el números intermedio de una secuencia de 3 números '''
 
-def top(a,b,c):
+def maximum(a,b,c):
     vec = [a,b,c]
     aux = 0
     for num in vec:
@@ -7,7 +8,7 @@ def top(a,b,c):
             aux = num
     return aux
 
-def bot(a,b,c):
+def minimum(a,b,c):
     vec = [a,b,c]
     aux = abs(a) + abs(b) + abs(c)
     for num in vec:
@@ -15,15 +16,15 @@ def bot(a,b,c):
             aux = num
     return aux
 
-def mid(a,b,c):
-    up=top(a,b,c)
-    down=bot(a,b,c)
+def middle(a,b,c):
+    top=maximum(a,b,c)
+    bot=minimum(a,b,c)
 
-    if a!=up and a!=down:
+    if a!=top and a!=bot:
         return a
-    elif b!=up and b!=down:
+    elif b!=top and b!=bot:
         return b
-    elif c!=up and c!=down:
+    elif c!=top and c!=bot:
         return c
     else:
         return "No hay intermedio"

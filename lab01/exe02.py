@@ -1,18 +1,19 @@
+''' Operaciones básicas de suma, resta, multiplicación, división y potenciación para 2 números '''
 
-def add(a,b):
+def addition(a,b):
     return a+b
 
-def sub(a,b):
+def subtraction(a,b):
     return a-b
 
-def mul(a,b):
+def multiplication(a,b):
     return a*b
 
-def div(a,b):
+def division(a,b):
     if b==0:
         return "No está definida la división entre 0" 
     else:
         return a/b
 
-def pow(a,b):
+def power(a,b):
     return a**b

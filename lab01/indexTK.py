@@ -6,7 +6,7 @@ from lab01.exe01 import *
 from lab01.exe02 import *
 
 class IndexTK(Frame):
-	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio '''
+	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio 1'''
 
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
@@ -60,9 +60,9 @@ class IndexTK(Frame):
 			a = int(txtnum1.get())
 			b = int(txtnum2.get())
 			c = int(txtnum3.get())
-			numtop.set("El mayor número es: " + str(top(a,b,c)))
-			nummid.set("El número intermedio es: " + str(mid(a,b,c)))
-			numbot.set("El menor número es: " + str(bot(a,b,c)))
+			numtop.set("El mayor número es: " + str(maximum(a,b,c)))
+			nummid.set("El número intermedio es: " + str(middle(a,b,c)))
+			numbot.set("El menor número es: " + str(minimum(a,b,c)))
 
 		btnsort = Button(tab, text="Ordenar", bg="green", fg="white", command=sort)
 		btnsort.grid(column=3, row=2)
@@ -84,42 +84,42 @@ class IndexTK(Frame):
 		txtnum2 = Entry(tab, textvariable=num2)
 		txtnum2.grid(column=1, row=1)
 
-		def addition():
+		def getValues():
 			a = int(txtnum1.get())
 			b = int(txtnum2.get())
-			messagebox.showinfo('Suma', add(a,b))
+			return a,b
 
-		def subtraction():
-			a = int(txtnum1.get())
-			b = int(txtnum2.get())
-			messagebox.showinfo('Resta', sub(a,b))
+		def add():
+			a,b = getValues()
+			messagebox.showinfo('Suma', addition(a,b))
 
-		def multiplication():
-			a = int(txtnum1.get())
-			b = int(txtnum2.get())
-			messagebox.showinfo('Multiplicación', mul(a,b))
+		def sub():
+			a,b = getValues()
+			messagebox.showinfo('Resta', subtraction(a,b))
 
-		def division():
-			a = int(txtnum1.get())
-			b = int(txtnum2.get())
-			messagebox.showinfo('División', div(a,b))
+		def mul():
+			a,b = getValues()
+			messagebox.showinfo('Multiplicación', multiplication(a,b))
 
-		def power():
-			a = int(txtnum1.get())
-			b = int(txtnum2.get())
-			messagebox.showinfo('Potenciación', pow(a,b))
+		def div():
+			a,b = getValues()
+			messagebox.showinfo('División', division(a,b))
 
-		btnaddition = Button(tab, text="Sumar", bg="green", fg="white", command=addition)
-		btnaddition.grid(column=2, row=2)
+		def pow():
+			a,b = getValues()
+			messagebox.showinfo('Potenciación', power(a,b))
 
-		btnresta = Button(tab, text="Restar", bg="green", fg="white", command=subtraction)
-		btnresta.grid(column=3, row=2)
+		btnadd = Button(tab, text="Sumar", bg="green", fg="white", command=add)
+		btnadd.grid(column=2, row=2)
 
-		btnmulti = Button(tab, text="Multiplicar", bg="green", fg="white", command=multiplication)
-		btnmulti.grid(column=4, row=2)
+		btnsub = Button(tab, text="Restar", bg="green", fg="white", command=sub)
+		btnsub.grid(column=3, row=2)
 
-		btnpoten = Button(tab, text="Dividir", bg="green", fg="white", command=division)
-		btnpoten.grid(column=5, row=2)
+		btnmul = Button(tab, text="Multiplicar", bg="green", fg="white", command=mul)
+		btnmul.grid(column=4, row=2)
 
-		btnpoten = Button(tab, text="Potenciar", bg="green", fg="white", command=power)
-		btnpoten.grid(column=6, row=2)
+		btndiv = Button(tab, text="Dividir", bg="green", fg="white", command=div)
+		btndiv.grid(column=5, row=2)
+
+		btnpow = Button(tab, text="Potenciar", bg="green", fg="white", command=pow)
+		btnpow.grid(column=6, row=2)

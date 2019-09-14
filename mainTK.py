@@ -1,6 +1,7 @@
 
 from tkinter import *
 from lab01.indexTK import IndexTK as Index01
+from lab02.indexTK import IndexTK as Index02
 
 class MainTK(Frame):
 	''' GUI con tkinter principal que llama las demás interfaces en forma de ventanas '''
@@ -8,7 +9,7 @@ class MainTK(Frame):
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.pack(expand=True)
-		self.master.title("Ventana Principal")
+		self.master.title("LABORATORIOS DE PYTHON")
 		self.master.geometry('800x600')
 		self.initMenu()
 
@@ -20,6 +21,7 @@ class MainTK(Frame):
 		### Se creará un 'command' por cada laboratorio ###
 		labsmenu = Menu(menubar, tearoff=0) # 'tearoff' quita un elemento que aparece por defecto en el menu
 		labsmenu.add_command(label="Laboratorio 1", command=self.openIndex01)
+		labsmenu.add_command(label="Laboratorio 2", command=self.openIndex02)
 
 
 		### ------------------------------------------- ###
@@ -33,6 +35,10 @@ class MainTK(Frame):
 		window = self.openWindow("Labo1")
 		Index01(window)
 
+	def openIndex02(self):
+		window = self.openWindow("Labo2")
+		Index02(window)
+
 
 	### --------------------------------------------- ###
 
@@ -41,7 +47,7 @@ class MainTK(Frame):
 		''' Función que retorna la interfaz Toplevel ya configurada '''
 		w = Toplevel(self.master)
 		w.title(ti)
-		w.geometry("600x400")
+		w.geometry("650x400+800+200")
 		return w
 
 MainTK().mainloop()
