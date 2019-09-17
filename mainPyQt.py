@@ -8,6 +8,8 @@ from PyQt5.QtGui import QIcon
 from lab01.index import Exercise01 as lab01exe01
 from lab01.index import Exercise02 as lab01exe02
 
+from lab02.index import Exercise01 as lab02exe01
+
 class MainPyQt(QMainWindow):
 	def __init__(self):
 		QMainWindow.__init__(self)
@@ -38,6 +40,15 @@ class MainPyQt(QMainWindow):
 		actLab01Exe01.triggered.connect(self.openLab01Exe02)
 		menuLab01.addAction(actLab01Exe01)
 
+		#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+		menuLab02 = menuBar.addMenu("Laboratorio II")
+
+		actLab02Exe01 = QAction(QIcon(), "Ejercicio 1", self)
+		actLab02Exe01.setStatusTip("Abrir ejercicio 1")
+		actLab02Exe01.triggered.connect(self.openLab02Exe01)
+		menuLab02.addAction(actLab02Exe01)
+
 		### ------------------------------------------------------------------------------------ ###
 
 
@@ -50,6 +61,12 @@ class MainPyQt(QMainWindow):
 
 	def openLab01Exe02(self):
 		subwin = lab01exe02(self)
+		self.mdiArea.addSubWindow(subwin)
+		subwin.setGeometry(20, 50, subwin.x, subwin.y)
+		subwin.show()
+
+	def openLab02Exe01(self):
+		subwin = lab02exe01(self)
 		self.mdiArea.addSubWindow(subwin)
 		subwin.setGeometry(20, 50, subwin.x, subwin.y)
 		subwin.show()

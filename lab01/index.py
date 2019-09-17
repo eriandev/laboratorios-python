@@ -1,7 +1,7 @@
 
 import sys
 from PyQt5 import Qt, QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QMdiSubWindow, QLabel, QLineEdit, QPushButton, QLCDNumber, QVBoxLayout, QWidget, QAction, QTabWidget, QVBoxLayout, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMdiSubWindow, QLabel, QLineEdit, QPushButton, QLCDNumber, QWidget, QAction, QMessageBox
 
 from lab01.exe01 import *
 from lab01.exe02 import *
