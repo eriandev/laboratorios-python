@@ -5,7 +5,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QMenuBar, QDialog, QPushButton, QLabel, QAction, QMessageBox
 from PyQt5.QtGui import QIcon
 
-from lab01.index import Exercice01 as lab01exe01
+from lab01.index import Exercise01 as lab01exe01
+from lab01.index import Exercise02 as lab01exe02
 
 class MainPyQt(QMainWindow):
 	def __init__(self):
@@ -21,24 +22,34 @@ class MainPyQt(QMainWindow):
 
 	def initMenuBar(self):
 		menuBar = self.menuBar()
-		menuLabs = menuBar.addMenu("Laboratorios")
 
-		### ------ Se creará un menu por cada laboratorio, con sus respectivos submenus ------ ###
+		### ------ Se creará un menu por cada laboratorio, con sus respectivos actions ------ ###
 
-		menuLabo1 = menuLabs.addMenu("Laboratorio 1")
+		menuLab01 = menuBar.addMenu("Laboratorio I")
 
-		actionExe1 = QAction(QIcon(), "Ejercicio 1", self)
-		actionExe1.setShortcut("Ctrl+o")
-		actionExe1.setStatusTip("Abrir ejercicio 1")
-		actionExe1.triggered.connect(self.openIndex01)
-		menuLabo1.addAction(actionExe1)
+		actLab01Exe01 = QAction(QIcon(), "Ejercicio 1", self)
+		#actLab01Exe01.setShortcut("Ctrl+o")
+		actLab01Exe01.setStatusTip("Abrir ejercicio 1")
+		actLab01Exe01.triggered.connect(self.openLab01Exe01)
+		menuLab01.addAction(actLab01Exe01)
+
+		actLab01Exe01 = QAction(QIcon(), "Ejercicio 2", self)
+		actLab01Exe01.setStatusTip("Abrir ejercicio 2")
+		actLab01Exe01.triggered.connect(self.openLab01Exe02)
+		menuLab01.addAction(actLab01Exe01)
 
 		### ------------------------------------------------------------------------------------ ###
 
 
-	### Se creará un 'openIndex' por cada laboratorio ###
-	def openIndex01(self):
+	### Se creará un 'openLab' por cada ejercicio de cada laboratorio ###
+	def openLab01Exe01(self):
 		subwin = lab01exe01(self)
+		self.mdiArea.addSubWindow(subwin)
+		subwin.setGeometry(20, 50, subwin.x, subwin.y)
+		subwin.show()
+
+	def openLab01Exe02(self):
+		subwin = lab01exe02(self)
 		self.mdiArea.addSubWindow(subwin)
 		subwin.setGeometry(20, 50, subwin.x, subwin.y)
 		subwin.show()

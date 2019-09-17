@@ -1,11 +1,12 @@
 
 import sys
 from PyQt5 import Qt, QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QMdiSubWindow, QLabel, QLineEdit, QPushButton, QLCDNumber, QVBoxLayout, QWidget, QAction, QTabWidget, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QMdiSubWindow, QLabel, QLineEdit, QPushButton, QLCDNumber, QVBoxLayout, QWidget, QAction, QTabWidget, QVBoxLayout, QMessageBox
 
 from lab01.exe01 import *
+from lab01.exe02 import *
 
-class Exercice01(QMdiSubWindow):
+class Exercise01(QMdiSubWindow):
 
 	x = 500
 	y = 400
@@ -13,7 +14,7 @@ class Exercice01(QMdiSubWindow):
 	def __init__(self, parent=None):
 		QMdiSubWindow.__init__(self, parent)
 
-		self.setWindowTitle("Laboratorio 1")
+		self.setWindowTitle("Ejercicio 1")
 
 		self.lblNum1 = QLabel(self)
 		self.lblNum1.setGeometry(30, 80, 101, 16)
@@ -80,3 +81,90 @@ class Exercice01(QMdiSubWindow):
 			self.lblNumMid.setText("Es el número intermedio")
 		self.lcdNumMid.display(middle(a,b,c))
 		self.lcdNumBot.display(minimum(a,b,c))
+
+
+
+class Exercise02(QMdiSubWindow):
+
+	x = 230
+	y = 350
+
+	def __init__(self, parent=None):
+		QMdiSubWindow.__init__(self, parent)
+
+		self.setWindowTitle("Ejercicio 2")
+
+		self.txtNum1 = QLineEdit(self)
+		self.txtNum1.setGeometry(60, 40, 113, 20)
+		self.txtNum1.setText("0")
+
+		self.txtNum2 = QLineEdit(self)
+		self.txtNum2.setGeometry(60, 80, 113, 20)
+		self.txtNum2.setText("0")
+
+		font = QtGui.QFont()
+		font.setBold(True)
+		font.setWeight(75)
+
+		self.btnPlus = QPushButton(self)
+		self.btnPlus.setGeometry(60, 130, 111, 23)
+		self.btnPlus.setFont(font)
+		self.btnPlus.setText("Sumar")
+		self.btnPlus.clicked.connect(self.add)
+
+		self.btnMinus = QPushButton(self)
+		self.btnMinus.setGeometry(60, 170, 111, 23)
+		self.btnMinus.setFont(font)
+		self.btnMinus.setText("Restar")
+		self.btnMinus.clicked.connect(self.sub)
+
+		self.btnTimes = QPushButton(self)
+		self.btnTimes.setGeometry(60, 210, 111, 23)
+		self.btnTimes.setFont(font)
+		self.btnTimes.setText("Multiplicar")
+		self.btnTimes.clicked.connect(self.mul)
+
+		self.btnDivided = QPushButton(self)
+		self.btnDivided.setGeometry(60, 250, 111, 23)
+		self.btnDivided.setFont(font)
+		self.btnDivided.setText("Dividir")
+		self.btnDivided.clicked.connect(self.div)
+
+		self.btnPow = QPushButton(self)
+		self.btnPow.setGeometry(60, 290, 111, 23)
+		self.btnPow.setFont(font)
+		self.btnPow.setText("Potenciar")
+		self.btnPow.clicked.connect(self.pow)
+
+	def getValues(self):
+		a = int(self.txtNum1.text())
+		b = int(self.txtNum2.text())
+		return a,b
+
+	def showMessage(self, text):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Information)
+		msgBox.setText("El resultado es: " + text)
+		msgBox.setWindowTitle("Resultado")
+
+		msgBox.exec()
+
+	def add(self):
+		a,b = self.getValues()
+		self.showMessage(str(addition(a,b)))
+
+	def sub(self):
+		a,b = self.getValues()
+		self.showMessage(str(subtraction(a,b)))
+
+	def mul(self):
+		a,b = self.getValues()
+		self.showMessage(str(multiplication(a,b)))
+
+	def div(self):
+		a,b = self.getValues()
+		self.showMessage(str(division(a,b)))
+
+	def pow(self):
+		a,b = self.getValues()
+		self.showMessage(str(power(a,b)))
