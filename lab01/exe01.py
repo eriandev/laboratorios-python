@@ -1,4 +1,4 @@
-''' Operaciones para hallar el números mayor, el números menor y el números intermedio de una secuencia de 3 números '''
+''' Funciones para hallar el números mayor, el números menor y el números intermedio de una secuencia de 3 números '''
 
 def maximum(a,b,c):
     vec = [a,b,c]
