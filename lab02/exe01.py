@@ -1,7 +1,9 @@
+''' Operaciones para procesar las imágenes en base al umbral ingresado '''
+
 from PIL import Image
 
 def convertImage():
-	imgGray = Image.open("lab02/machu_picchu.jpg").convert("L")
+	imgGray = Image.open("img/machu_picchu.jpg").convert("L")
 	x,y = imgGray.size
 	return imgGray,x,y
 
@@ -13,7 +15,7 @@ def identity():
 			p = img.getpixel((i,j))
 			q = p #identidad
 			output.putpixel((i,j),q)
-	output.save("identidad.tif")
+	output.save("img/identidad.tif")
 	output.show()
 
 def negative():
@@ -24,7 +26,7 @@ def negative():
 			p = img.getpixel((i,j))
 			q = 255 - p #negativo
 			output.putpixel((i,j),q)
-	output.save("negativo.tif")
+	output.save("img/negativo.tif")
 	output.show()
 
 def threshold(sill):
@@ -38,7 +40,7 @@ def threshold(sill):
 			else:
 				q = 255
 			output.putpixel((i,j),q)
-	output.save("umbral.tif")
+	output.save("img/umbral.tif")
 	output.show()
 
 def inverseThreshold(sill):
@@ -52,7 +54,7 @@ def inverseThreshold(sill):
 			else:
 				q = 0
 			output.putpixel((i,j),q)
-	output.save("umbral_inverso.tif")
+	output.save("img/umbral_inverso.tif")
 	output.show()
 
 def doubleThreshold(sill1, sill2):
@@ -66,7 +68,7 @@ def doubleThreshold(sill1, sill2):
 			else:
 				q = 0
 			output.putpixel((i,j),q)
-	output.save("doble_umbral.tif")
+	output.save("img/doble_umbral.tif")
 	output.show()
 
 def doubleInverseThreshold(sill1, sill2):
@@ -80,5 +82,5 @@ def doubleInverseThreshold(sill1, sill2):
 			else:
 				q = 255
 			output.putpixel((i,j),q)
-	output.save("doble_umbral_inverso.tif")
+	output.save("img/doble_umbral_inverso.tif")
 	output.show()
