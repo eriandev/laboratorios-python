@@ -37,28 +37,21 @@ class MainTK(Frame):
 		Index01(window)
 
 	def openIndex02(self):
-		window = self.openCustomWindow("Labo2",750,400)
+		window = self.openWindow("Labo2",750,400)
 		Index02(window)
 
 	def openIndex03(self):
-		window = self.openWindow("Labo3")
+		window = self.openWindow("Labo3", 950, 700)
 		Index03(window)
 
 	### --------------------------------------------- ###
 
 
-	def openWindow(self, ti):
+	def openWindow(self, ti, x=650, y=400):
 		''' Función que retorna la interfaz Toplevel ya configurada '''
 		w = Toplevel(self.master)
 		w.title(ti)
-		w.geometry("650x400+700+200")
-		return w
-
-	def openCustomWindow(self, ti, x, y):
-		''' Función que retorna la interfaz Toplevel ya configurada con medidas personalizadas '''
-		w = Toplevel(self.master)
-		w.title(ti)
-		w.geometry(str(x)+"x"+str(y)+"+700+200")
+		w.geometry(str(x)+"x"+str(y)+"+500+200")
 		return w
 
 MainTK().mainloop()
