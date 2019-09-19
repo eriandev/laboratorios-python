@@ -1,8 +1,9 @@
+''' Operaciones para procesar las imágenes en base al umbral ingresado '''
 
 from PIL import Image
 
 def convertImage():
-	imgGray = Image.open("lab02/machu_picchu.jpg").convert("L")
+	imgGray = Image.open("img/machu_picchu.jpg").convert("L")
 	x,y = imgGray.size
 	return imgGray,x,y
 

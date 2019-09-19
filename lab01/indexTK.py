@@ -6,7 +6,7 @@ from lab01.exe01 import *
 from lab01.exe02 import *
 
 class IndexTK(Frame):
-	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio 1'''
+	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio 1 '''
 
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
@@ -20,14 +20,14 @@ class IndexTK(Frame):
 		tab2 = ttk.Frame(notebook)
 		notebook.add(tab1, text='Ejercicio 1')
 		notebook.add(tab2, text='Ejercicio 2')
-		self.exercice01(tab1)
-		self.exercice02(tab2)
+		self.exercise01(tab1)
+		self.exercise02(tab2)
 		notebook.pack()
 
 
 
 	## -- Ejercicio 1 -- ##
-	def exercice01(self, tab):
+	def exercise01(self, tab):
 		numtop = StringVar() 
 		nummid = StringVar()
 		numbot = StringVar()
@@ -70,7 +70,7 @@ class IndexTK(Frame):
 
 
 	## -- Ejercicio 2 -- ##
-	def exercice02(self, tab):
+	def exercise02(self, tab):
 		num1 = IntVar()
 		num2 = IntVar()
 

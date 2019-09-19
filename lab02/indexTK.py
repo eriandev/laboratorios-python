@@ -5,7 +5,7 @@ from tkinter import messagebox
 from lab02.exe01 import *
 
 class IndexTK(Frame):
-	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio 2'''
+	''' Sirve de index entre la GUI tkinter principal y los ejercicios del laboratorio 2 '''
 
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
@@ -18,11 +18,13 @@ class IndexTK(Frame):
 		tab1 = ttk.Frame(notebook)
 		tab2 = ttk.Frame(notebook)
 		notebook.add(tab1, text='Ejercicio 1')
-		self.exercice01(tab1)
+		self.exercise01(tab1)
 		notebook.pack()
 
+
+
 	## -- Ejercicio 1 -- ##
-	def exercice01(self, tab):
+	def exercise01(self, tab):
 		sill1 = IntVar()
 		sill2 = IntVar()
 
@@ -80,19 +82,19 @@ class IndexTK(Frame):
 				doubleInverseThreshold(a, b)
 
 		btniden = Button(tab, text="Identidad", bg="green", fg="white", command=iden)
-		btniden.grid(column=2, row=3)
+		btniden.grid(column=3, row=3)
 
 		btnnega = Button(tab, text="Negativo", bg="green", fg="white", command=nega)
-		btnnega.grid(column=3, row=3)
+		btnnega.grid(column=4, row=3)
 
 		btnthres = Button(tab, text="Umbral", bg="green", fg="white", command=thres)
-		btnthres.grid(column=4, row=3)
+		btnthres.grid(column=5, row=3)
 
 		btninverThres = Button(tab, text="Umbral Inverso", bg="green", fg="white", command=inverThres)
-		btninverThres.grid(column=5, row=3)
+		btninverThres.grid(column=6, row=3)
 
 		btndoubleThres = Button(tab, text="Doble Umbral", bg="green", fg="white", command=doubleThres)
-		btndoubleThres.grid(column=6, row=3)
+		btndoubleThres.grid(column=7, row=3)
 
 		btndoInThres = Button(tab, text="Doble Umbral Inverso", bg="green", fg="white", command=doInThres)
-		btndoInThres.grid(column=7, row=3)
+		btndoInThres.grid(column=8, row=3)
