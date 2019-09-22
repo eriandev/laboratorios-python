@@ -1,9 +1,9 @@
 ''' Operaciones para la extracción de características de imágenes digitales en base al operador seleccionado '''
 
 import math
-from os import listdir, remove, path
 from PIL import Image
 from tkinter import messagebox
+from os import listdir, remove, path
 
 imgGray = Image.open("img/machu_picchu.jpg").convert("L")
 weight, height = imgGray.size
